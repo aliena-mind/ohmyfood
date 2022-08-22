@@ -1,0 +1,18 @@
+%flex-center_x /* centre l'élément sur x */
+{
+    display: flex;
+    justify-content: center;
+}
+
+%flex-center_y /* centre l'élément y */
+{
+    display: flex;
+    align-items: center;
+}
+
+%flex-center_xy /* centre l'élément sur x et y */
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

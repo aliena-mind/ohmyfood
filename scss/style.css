@@ -1,0 +1,224 @@
+@charset "UTF-8";
+.commander, .btn_menu .btn_menu_description_prix, .header_contend a {
+  display: flex;
+  justify-content: center;
+}
+
+.restaurant .carte_restaurant .carte_restaurant_description, .ensemble_btn_fonctionnement {
+  display: flex;
+  align-items: center;
+}
+
+.carte_menu .carte_menu_titre, .header_contend_menu a, .ensemble_btn_fonctionnement p, main .explorer, main .location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box; /* élément final = element + margin + padding */
+}
+
+h1 {
+  font-size: 22px; /* taille de la police */
+  margin-bottom: 20px; /* marge extérieure */
+  padding: 0 30px; /* marge intérieure */
+}
+
+h2 {
+  font-size: 18px; /* taille de la police */
+  margin-top: 30px; /* marge extérieure */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%; /* largeur */
+  -o-object-fit: cover;
+     object-fit: cover; /* photo adapté au bloc */
+}
+
+.bloc_page {
+  margin: auto; /* marge extérieure */
+}
+
+.container {
+  max-width: 1340px; /* largeur max à 1340px */
+  width: 100%; /* largeur à 100% */
+  margin: auto; /* marge extérieure automatique */
+}
+
+.header_contend a {
+  /* placeholder flexbox centré sur l'axe x */
+  padding: 20px 0; /* marge intérieure */
+}
+.header_contend img {
+  width: auto; /* largeur */
+  height: 30px; /* hauteur */
+}
+
+main .location {
+  /* placeholder flexbox centré sur l'axe x & y */
+  height: 50px; /* hauteur */
+  padding: 20px; /* marge intérieure */
+  background-color: #f3f3f3; /* couleur de fond */
+  box-shadow: inset 3px 3px 3px rgb(200, 200, 200); /* ombrages */
+}
+main .location p {
+  padding: 0 20px; /* marge intérieure */
+  font-size: 20px; /* taille police */
+}
+main .explorer {
+  /* placeholder flexbox centré sur l'axe x & y */
+  flex-direction: column; /* flexbox en colonne */
+  padding: 20px 0;
+  background-color: #fafafa; /* couleur du fond */
+  text-align: center; /*  centre le texte */
+}
+main .explorer p {
+  padding: 0 20px; /* marge intérieure */
+}
+main .fonctionnement {
+  padding: 20px; /* marge intérieure */
+}
+
+.btn {
+  margin: 10px 0; /* marge extérieure */
+  height: 50px; /* hauteur */
+  border: none; /* bordure du cadre */
+  box-shadow: 6px 6px 6px #dfdfdf; /* ombrages */
+}
+
+.btn_rose {
+  margin-top: 20px; /* marge extérieure */
+  padding: 0 20px; /* marge intérieure */
+  color: white; /* couleur */
+  border-radius: 50px; /* arrondis du cadre */
+  background: linear-gradient(#FF79DA, #9356DC); /* fond dégradé */
+}
+
+.ensemble_btn_fonctionnement p {
+  /* placeholder flexbox centré sur l'axe x & y */
+  min-width: 20px; /* largeur mini */
+  width: 20px; /* largeur */
+  min-height: 20px; /* hauteur mini */
+  height: 20px; /* hauteur */
+  color: white; /* couleur */
+  background-color: #9356DC; /* couleur du fond */
+  border-radius: 100%; /* arrondis du cadre */
+  z-index: 2; /* élément au dernier plan */
+}
+.ensemble_btn_fonctionnement i {
+  margin: 20px; /* marge extérieure */
+  color: #959595; /* couleur */
+  z-index: 2; /* élément au dernier plan */
+}
+.ensemble_btn_fonctionnement .btn_fonctionnement {
+  margin-left: -66px;
+  padding: 0 10px; /* marge intérieure */
+  width: 100%; /* largeur */
+  height: 70px; /* hauteur */
+  background-color: #fafafa; /* couleur du fond */
+  border-radius: 20px; /* arrondis du cadre */
+}
+.ensemble_btn_fonctionnement .btn_fonctionnement:hover {
+  background-color: rgba(146, 86, 220, 0.1019607843); /* couleur du fond */
+}
+
+.restaurant {
+  background-color: #f3f3f3; /* couleur du fond */
+  padding: 20px; /* marge intérieure */
+}
+.restaurant a {
+  text-decoration: none;
+  color: black;
+}
+.restaurant .carte_restaurant {
+  width: 100%; /* largeur */
+  margin-bottom: 20px; /* marge intérieure */
+  border-radius: 20px; /* arrondis du cadre */
+  box-shadow: 6px 6px 6px #dfdfdf; /* ombrages */
+}
+.restaurant .carte_restaurant img {
+  height: 190px; /* hauteur */
+  border-radius: 20px 20px 0 0; /* arrondis du cadre */
+}
+.restaurant .carte_restaurant .carte_restaurant_description {
+  justify-content: space-between; /* espace les éléments */
+  padding: 20px 20px; /* marge intérieure */
+  background-color: white; /* couleur du fond */
+  border-radius: 0 0 20px 20px; /* arrondis du cadre */
+}
+.restaurant .carte_restaurant .carte_restaurant_description i:hover {
+  color: linear-gradient(#FF79DA, #9356DC); /* couleur */
+}
+
+footer {
+  background-color: #353535; /* couleur du fond */
+  padding: 20px; /* marge intérieure */
+}
+
+.footer_contend h3 {
+  color: white; /* couleur */
+  margin-bottom: 20px; /* marge extérieure */
+}
+.footer_contend ul li {
+  margin-bottom: 10px; /* marge extérieure */
+}
+.footer_contend ul li a {
+  color: white; /* couleur */
+}
+.footer_contend ul li a i {
+  width: 15px; /* largeur */
+  padding-right: 20px; /* marge intérieure */
+  font-size: smaller; /* taille de la police */
+}
+
+.header_contend_menu {
+  display: grid;
+  grid-template-columns: repeat(1fr, 3);
+  grid-template-areas: "i img";
+}
+.header_contend_menu a {
+  /* placeholder flexbox centré sur l'axe x & y */
+  margin-left: -10px;
+}
+.header_contend_menu a i {
+  font-size: x-large;
+  font-weight: bold;
+  color: black;
+}
+.header_contend_menu img {
+  width: auto; /* largeur */
+  height: 70px; /* hauteur */
+  padding: 20px; /* marge intérieure */
+  margin-left: -10px; /* marge extérieure */
+}
+
+.carte_menu {
+  margin-top: -30px;
+  padding: 20px 0;
+  background-color: #f3f3f3;
+}
+.carte_menu .carte_menu_titre {
+  background-color: #f3f3f3;
+  border-radius: 20px 20px 0 0;
+}
+.btn_menu {
+  text-align: left;
+  padding: 0 10px; /* marge intérieure */
+  width: 100%; /* largeur */
+  height: 70px; /* hauteur */
+  background-color: #fafafa; /* couleur du fond */
+  border-radius: 20px; /* arrondis du cadre */
+}
+.btn_menu .btn_menu_description_prix {
+  justify-content: space-between;
+}
+
+.commander .btn_rose {
+  padding: 0 50px;
+  margin: 40px 0 60px 0;
+}/*# sourceMappingURL=style.css.map */
