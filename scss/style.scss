@@ -2,38 +2,50 @@
  @import '_mixins.scss';
  @import '_placeholders.scss';
 
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shrikhand&display=swap'); 
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Shrikhand&display=swap'); /* polices */
 
  *
  {
-    font-family: 'Roboto';
+    font-family: 'Roboto'; /* police */
     box-sizing: border-box; /* élément final = element + margin + padding */
  }
 
  h1
 {
-    font-family: 'Shrikhand';
-    font-size: 22px; /* taille de la police */
+    font-size: 25px; /* taille de la police */
+    padding: 0 50px; /* marge intérieure */
     margin-bottom: 20px; /* marge extérieure */
-    padding: 0 30px; /* marge intérieure */
  }
 
  h2
  {
-    font-size: 18px; /* taille de la police */
+    font-size: 25px; /* taille de la police */
+    font-weight: bold; /* largeur police */
+    margin: 30px 0; /* marge extérieure */
+ }
+
+ h3
+ {
+    font-weight: 300; /* largeur police */
+    font-size: 20px; /* taille de la police */
     margin-top: 30px; /* marge extérieure */
+ }
+
+ h4
+ {
+    font-size: 18px; /* taille de la police */
+    margin-bottom: 10px; /* marge extérieure */
  }
 
  a
  {
-    text-decoration: none;
+    text-decoration: none; /* retire les effets de styles sur les liens */
  }
 
  img
  {
     width: 100%; /* largeur */
     object-fit: cover; /* photo adapté au bloc */
-
  }          
 
  .bloc_page
@@ -52,7 +64,7 @@
 {
     a
     {
-        @extend %flex-center_x; /* placeholder flexbox centré sur l'axe x */
+        @extend %flex-center_x; 
 
         padding: 20px 0; /* marge intérieure */
     }
@@ -67,30 +79,31 @@ main
 {
     .location
     {
-        @extend %flex-center_xy; /* placeholder flexbox centré sur l'axe x & y */
+        @extend %flex-center_xy; 
     
         height: 50px; /* hauteur */
         padding: 20px; /* marge intérieure */
         background-color: #f3f3f3; /* couleur de fond */
 
         box-shadow: inset 3px 3px 3px rgb(200, 200, 200); /* ombrages */
-
         p
         {
             padding: 0 20px; /* marge intérieure */
-            font-size: 20px; /* taille police */
+            font-size: 18px; /* taille police */
         }
     }
     .explorer
     {
-        @extend %flex-center_xy; /* placeholder flexbox centré sur l'axe x & y */
+        @extend %flex-center_xy; 
         flex-direction: column; /* flexbox en colonne */
 
-        padding: 20px 0;
+        padding: 20px 0; /* marge intérieure */
         background-color: #fafafa; /* couleur du fond */ 
         text-align: center; /*  centre le texte */    
         p
         {
+            font-size: 18px; /* taille police */
+            color: #616161; /* couleur */
             padding: 0 20px; /* marge intérieure */
         }
     }
@@ -111,10 +124,21 @@ main
 .btn_rose 
 {
     margin-top: 20px; /* marge extérieure */
+    margin-bottom: 30px;
     padding: 0 20px; /* marge intérieure */
     color: white; /* couleur */
     border-radius: 50px; /* arrondis du cadre */ 
     background: linear-gradient($couleur_2, $couleur_1); /* fond dégradé */ 
+}
+
+.btn_jaime
+{
+    background-color: white;
+    box-shadow: none;
+    &:active
+    {
+        color: linear-gradient($couleur_2, $couleur_1); /* couleur */
+    }
 }
 
 .ensemble_btn_fonctionnement
@@ -122,7 +146,7 @@ main
     @extend %flex-center_y;  
     p
     {
-        @extend %flex-center_xy; /* placeholder flexbox centré sur l'axe x & y */
+        @extend %flex-center_xy; 
 
         min-width: 20px; /* largeur mini */
         width: 20px; /* largeur */
@@ -183,12 +207,14 @@ main
             padding: 20px 20px; /* marge intérieure */
             background-color: white; /* couleur du fond */
             border-radius: 0 0 20px 20px; /* arrondis du cadre */
+            p
+            {
+                font-size: 17px; /* taille police */
+                font-weight: 300; /* largeur police */
+            }
             i
             {
-                &:hover
-                {
-                    color: linear-gradient($couleur_2, $couleur_1); /* couleur */
-                }
+                font-size: x-large;
             }
         }
     }
@@ -202,8 +228,9 @@ footer
 
 .footer_contend /* détermine les caractéristiques du contenu du footer */
 {
-    h3
+    h5
     {
+        font-family: 'Shrikhand'; /* police */
         color: white; /* couleur */
         margin-bottom: 20px; /* marge extérieure */
     }
@@ -225,21 +252,20 @@ footer
 
 .header_contend_menu
 {
-    display: grid;
-    grid-template-columns: repeat(1fr, 3) ;
-    grid-template-areas: "i img";
+    display: grid; /* active la propriété 'grid' */
+    grid-template-columns: repeat(1fr, 3) ; /* nb colonne + taille colonne */
+    grid-template-areas: "i img"; /* placement template */
     a
     {
-        @extend %flex-center_xy; /* placeholder flexbox centré sur l'axe x & y */
+        @extend %flex-center_xy; 
 
-        margin-left: -10px;
+        margin-left: -10px; /* marge extérieure */
         i
         {
-            font-size: x-large;
-            font-weight: bold;
-            color: black;
+            font-size: x-large; /* taille police */
+            font-weight: bold; /* largeur police */
+            color: black; /* couleur */
         }
-
     }
     img
     {
@@ -250,56 +276,59 @@ footer
     }
 }
 
-.banniere
-{
-    
-}
-
 .carte_menu
 {
-    position: relative;
-    margin-top: -40px;
-    padding: 20px 0;
-    background-color: #f3f3f3;
+    position: relative; /* propriété position relative */
+    border-radius: 40px; /* arrondis */
+    margin-top: -40px; /* marge extérieure */
+    padding: 20px; /* marge intérieure */
+    background-color: #f3f3f3; /* couleur fond */
     
     .carte_menu_titre
     {
-        @extend %flex-center_xy;
+        @extend %flex-center_y;
+        justify-content: space-between; /* espace les éléments */
 
-        background-color: #f3f3f3;
-        border-radius: 20px 20px 0 0;
+        margin: 20px 0; /* marge extérieure */
+        background-color: #f3f3f3; /* couleur fond */
+        border-radius: 20px 20px 0 0; /* arrondis */
         h1
         {
-            margin-bottom: 0;
+            font-family: 'Shrikhand'; /* police */
+            font-size: 30px; /* taille police */
+            margin-bottom: 0; /* largeur police */
+            padding: 0; /* marge intérieure */
         }
-
-    }
-    .entrees
-    {
-
-    }
-    .plats
-    {
-        
-    }
-    .desserts
-    {
-        
+        i
+        {
+            font-size: x-large;
+        }
     }
 }
 
 .btn_menu
 {
-    text-align: left;
-    padding: 0 10px; /* marge intérieure */
+    text-align: left; /* texte à gauche */
+    padding: 0 15px; /* marge intérieure */
     width: 100%; /* largeur */
     height: 70px; /* hauteur */
     background-color: #fafafa; /* couleur du fond */
     border-radius: 20px; /* arrondis du cadre */
+    >p
+    {
+        font-size: 18px; /* taille police */
+        margin-bottom: 5px; /* marge extérieure */
+    }
     .btn_menu_description_prix
     {
         @extend %flex-center_x;
-        justify-content: space-between;
+        justify-content: space-between; /* espace les éléments */
+
+        >p
+        {
+            font-size: 15px; /* taille police */
+            font-weight: 100; /* largeur police */
+        }
     }      
 }
 
@@ -308,9 +337,8 @@ footer
     @extend %flex-center_x;
     .btn_rose
     {
-        padding: 0 50px;
-        margin: 40px 0 60px 0;
+        padding: 0 50px; /* marge intérieure */
+        margin: 40px 0 60px 0; /* marge extérieure */
     }
-
 }
 

@@ -1,37 +1,52 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Shrikhand&display=swap");
 .commander, .btn_menu .btn_menu_description_prix, .header_contend a {
   display: flex;
   justify-content: center;
 }
 
-.restaurant .carte_restaurant .carte_restaurant_description, .ensemble_btn_fonctionnement {
+.carte_menu .carte_menu_titre, .restaurant .carte_restaurant .carte_restaurant_description, .ensemble_btn_fonctionnement {
   display: flex;
   align-items: center;
 }
 
-.carte_menu .carte_menu_titre, .header_contend_menu a, .ensemble_btn_fonctionnement p, main .explorer, main .location {
+.header_contend_menu a, .ensemble_btn_fonctionnement p, main .explorer, main .location {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* polices */
 * {
+  font-family: "Roboto"; /* police */
   box-sizing: border-box; /* élément final = element + margin + padding */
 }
 
 h1 {
-  font-size: 22px; /* taille de la police */
+  font-size: 25px; /* taille de la police */
+  padding: 0 50px; /* marge intérieure */
   margin-bottom: 20px; /* marge extérieure */
-  padding: 0 30px; /* marge intérieure */
 }
 
 h2 {
-  font-size: 18px; /* taille de la police */
+  font-size: 25px; /* taille de la police */
+  font-weight: bold; /* largeur police */
+  margin: 30px 0; /* marge extérieure */
+}
+
+h3 {
+  font-weight: 300; /* largeur police */
+  font-size: 20px; /* taille de la police */
   margin-top: 30px; /* marge extérieure */
 }
 
+h4 {
+  font-size: 18px; /* taille de la police */
+  margin-bottom: 10px; /* marge extérieure */
+}
+
 a {
-  text-decoration: none;
+  text-decoration: none; /* retire les effets de styles sur les liens */
 }
 
 img {
@@ -51,7 +66,6 @@ img {
 }
 
 .header_contend a {
-  /* placeholder flexbox centré sur l'axe x */
   padding: 20px 0; /* marge intérieure */
 }
 .header_contend img {
@@ -60,7 +74,6 @@ img {
 }
 
 main .location {
-  /* placeholder flexbox centré sur l'axe x & y */
   height: 50px; /* hauteur */
   padding: 20px; /* marge intérieure */
   background-color: #f3f3f3; /* couleur de fond */
@@ -68,16 +81,17 @@ main .location {
 }
 main .location p {
   padding: 0 20px; /* marge intérieure */
-  font-size: 20px; /* taille police */
+  font-size: 18px; /* taille police */
 }
 main .explorer {
-  /* placeholder flexbox centré sur l'axe x & y */
   flex-direction: column; /* flexbox en colonne */
-  padding: 20px 0;
+  padding: 20px 0; /* marge intérieure */
   background-color: #fafafa; /* couleur du fond */
   text-align: center; /*  centre le texte */
 }
 main .explorer p {
+  font-size: 18px; /* taille police */
+  color: #616161; /* couleur */
   padding: 0 20px; /* marge intérieure */
 }
 main .fonctionnement {
@@ -93,14 +107,22 @@ main .fonctionnement {
 
 .btn_rose {
   margin-top: 20px; /* marge extérieure */
+  margin-bottom: 30px;
   padding: 0 20px; /* marge intérieure */
   color: white; /* couleur */
   border-radius: 50px; /* arrondis du cadre */
   background: linear-gradient(#FF79DA, #9356DC); /* fond dégradé */
 }
 
+.btn_jaime {
+  background-color: white;
+  box-shadow: none;
+}
+.btn_jaime:active {
+  color: linear-gradient(#FF79DA, #9356DC); /* couleur */
+}
+
 .ensemble_btn_fonctionnement p {
-  /* placeholder flexbox centré sur l'axe x & y */
   min-width: 20px; /* largeur mini */
   width: 20px; /* largeur */
   min-height: 20px; /* hauteur mini */
@@ -151,8 +173,12 @@ main .fonctionnement {
   background-color: white; /* couleur du fond */
   border-radius: 0 0 20px 20px; /* arrondis du cadre */
 }
-.restaurant .carte_restaurant .carte_restaurant_description i:hover {
-  color: linear-gradient(#FF79DA, #9356DC); /* couleur */
+.restaurant .carte_restaurant .carte_restaurant_description p {
+  font-size: 17px; /* taille police */
+  font-weight: 300; /* largeur police */
+}
+.restaurant .carte_restaurant .carte_restaurant_description i {
+  font-size: x-large;
 }
 
 footer {
@@ -160,7 +186,8 @@ footer {
   padding: 20px; /* marge intérieure */
 }
 
-.footer_contend h3 {
+.footer_contend h5 {
+  font-family: "Shrikhand"; /* police */
   color: white; /* couleur */
   margin-bottom: 20px; /* marge extérieure */
 }
@@ -177,18 +204,17 @@ footer {
 }
 
 .header_contend_menu {
-  display: grid;
-  grid-template-columns: repeat(1fr, 3);
-  grid-template-areas: "i img";
+  display: grid; /* active la propriété 'grid' */
+  grid-template-columns: repeat(1fr, 3); /* nb colonne + taille colonne */
+  grid-template-areas: "i img"; /* placement template */
 }
 .header_contend_menu a {
-  /* placeholder flexbox centré sur l'axe x & y */
-  margin-left: -10px;
+  margin-left: -10px; /* marge extérieure */
 }
 .header_contend_menu a i {
-  font-size: x-large;
-  font-weight: bold;
-  color: black;
+  font-size: x-large; /* taille police */
+  font-weight: bold; /* largeur police */
+  color: black; /* couleur */
 }
 .header_contend_menu img {
   width: auto; /* largeur */
@@ -198,27 +224,49 @@ footer {
 }
 
 .carte_menu {
-  margin-top: -30px;
-  padding: 20px 0;
-  background-color: #f3f3f3;
+  position: relative; /* propriété position relative */
+  border-radius: 40px; /* arrondis */
+  margin-top: -40px; /* marge extérieure */
+  padding: 20px; /* marge intérieure */
+  background-color: #f3f3f3; /* couleur fond */
 }
 .carte_menu .carte_menu_titre {
-  background-color: #f3f3f3;
-  border-radius: 20px 20px 0 0;
+  justify-content: space-between; /* espace les éléments */
+  margin: 20px 0; /* marge extérieure */
+  background-color: #f3f3f3; /* couleur fond */
+  border-radius: 20px 20px 0 0; /* arrondis */
 }
+.carte_menu .carte_menu_titre h1 {
+  font-family: "Shrikhand"; /* police */
+  font-size: 30px; /* taille police */
+  margin-bottom: 0; /* largeur police */
+  padding: 0; /* marge intérieure */
+}
+.carte_menu .carte_menu_titre i {
+  font-size: x-large;
+}
+
 .btn_menu {
-  text-align: left;
-  padding: 0 10px; /* marge intérieure */
+  text-align: left; /* texte à gauche */
+  padding: 0 15px; /* marge intérieure */
   width: 100%; /* largeur */
   height: 70px; /* hauteur */
   background-color: #fafafa; /* couleur du fond */
   border-radius: 20px; /* arrondis du cadre */
 }
+.btn_menu > p {
+  font-size: 18px; /* taille police */
+  margin-bottom: 5px; /* marge extérieure */
+}
 .btn_menu .btn_menu_description_prix {
-  justify-content: space-between;
+  justify-content: space-between; /* espace les éléments */
+}
+.btn_menu .btn_menu_description_prix > p {
+  font-size: 15px; /* taille police */
+  font-weight: 100; /* largeur police */
 }
 
 .commander .btn_rose {
-  padding: 0 50px;
-  margin: 40px 0 60px 0;
+  padding: 0 50px; /* marge intérieure */
+  margin: 40px 0 60px 0; /* marge extérieure */
 }/*# sourceMappingURL=style.css.map */
