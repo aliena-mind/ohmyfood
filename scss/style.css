@@ -1,16 +1,16 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Shrikhand&display=swap");
-.commander, .btn_menu .btn_menu_description_prix, .header_contend a {
+.commander, .header_contend a {
   display: flex;
   justify-content: center;
 }
 
-.carte_menu .carte_menu_titre, .restaurant .carte_restaurant .carte_restaurant_description, .ensemble_btn_fonctionnement {
+.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix, .btn_menu, .carte_menu .carte_menu_titre, .restaurant .carte_restaurant .carte_restaurant_description, .ensemble_btn_fonctionnement a, .btn_rose {
   display: flex;
   align-items: center;
 }
 
-.header_contend_menu a, .ensemble_btn_fonctionnement p, main .explorer, main .location {
+.btn_jaime, .btn_menu .item_valider, .header_contend_menu a, .restaurant .carte_restaurant .nouveau_bloc_vert, .ensemble_btn_fonctionnement a .btn_fonctionnement, .ensemble_btn_fonctionnement a p, main .explorer, main .location {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@ h2 {
 
 h3 {
   font-weight: 300; /* largeur police */
-  font-size: 20px; /* taille de la police */
+  font-size: 18px; /* taille de la police */
   margin-top: 30px; /* marge extérieure */
 }
 
@@ -53,6 +53,11 @@ img {
   width: 100%; /* largeur */
   -o-object-fit: cover;
      object-fit: cover; /* photo adapté au bloc */
+}
+
+a {
+  display: block;
+  margin-bottom: 20x;
 }
 
 .bloc_page {
@@ -79,9 +84,14 @@ main .location {
   background-color: #f3f3f3; /* couleur de fond */
   box-shadow: inset 3px 3px 3px rgb(200, 200, 200); /* ombrages */
 }
-main .location p {
+main .location i {
   padding: 0 20px; /* marge intérieure */
   font-size: 18px; /* taille police */
+}
+main .location input {
+  margin-right: -20px;
+  background-color: #f3f3f3;
+  border: none;
 }
 main .explorer {
   flex-direction: column; /* flexbox en colonne */
@@ -113,16 +123,14 @@ main .fonctionnement {
   border-radius: 50px; /* arrondis du cadre */
   background: linear-gradient(#FF79DA, #9356DC); /* fond dégradé */
 }
-
-.btn_jaime {
-  background-color: white;
-  box-shadow: none;
-}
-.btn_jaime:active {
-  color: linear-gradient(#FF79DA, #9356DC); /* couleur */
+.btn_rose:hover {
+  opacity: 90%; /* opacité */
 }
 
-.ensemble_btn_fonctionnement p {
+.ensemble_btn_fonctionnement:hover i {
+  color: #9356DC;
+}
+.ensemble_btn_fonctionnement a p {
   min-width: 20px; /* largeur mini */
   width: 20px; /* largeur */
   min-height: 20px; /* hauteur mini */
@@ -132,20 +140,21 @@ main .fonctionnement {
   border-radius: 100%; /* arrondis du cadre */
   z-index: 2; /* élément au dernier plan */
 }
-.ensemble_btn_fonctionnement i {
+.ensemble_btn_fonctionnement a i {
   margin: 20px; /* marge extérieure */
   color: #959595; /* couleur */
   z-index: 2; /* élément au dernier plan */
 }
-.ensemble_btn_fonctionnement .btn_fonctionnement {
+.ensemble_btn_fonctionnement a .btn_fonctionnement {
   margin-left: -66px;
   padding: 0 10px; /* marge intérieure */
   width: 100%; /* largeur */
   height: 70px; /* hauteur */
   background-color: #fafafa; /* couleur du fond */
   border-radius: 20px; /* arrondis du cadre */
+  color: black;
 }
-.ensemble_btn_fonctionnement .btn_fonctionnement:hover {
+.ensemble_btn_fonctionnement a .btn_fonctionnement:hover {
   background-color: rgba(146, 86, 220, 0.1019607843); /* couleur du fond */
 }
 
@@ -162,6 +171,18 @@ main .fonctionnement {
   margin-bottom: 20px; /* marge intérieure */
   border-radius: 20px; /* arrondis du cadre */
   box-shadow: 6px 6px 6px #dfdfdf; /* ombrages */
+}
+.restaurant .carte_restaurant .nouveau_bloc_vert {
+  width: 25%; /* largeur */
+  height: 25%; /* hauteur */
+  padding: 2%;
+  background-color: #99E2D0;
+  color: #107f64;
+  border-radius: 3px;
+  position: relative;
+  left: 70%;
+  margin-bottom: -14%;
+  z-index: 2;
 }
 .restaurant .carte_restaurant img {
   height: 190px; /* hauteur */
@@ -230,6 +251,11 @@ footer {
   padding: 20px; /* marge intérieure */
   background-color: #f3f3f3; /* couleur fond */
 }
+.carte_menu h3 {
+  width: 45px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #99E2D0;
+}
 .carte_menu .carte_menu_titre {
   justify-content: space-between; /* espace les éléments */
   margin: 20px 0; /* marge extérieure */
@@ -242,28 +268,98 @@ footer {
   margin-bottom: 0; /* largeur police */
   padding: 0; /* marge intérieure */
 }
-.carte_menu .carte_menu_titre i {
-  font-size: x-large;
-}
 
 .btn_menu {
-  text-align: left; /* texte à gauche */
   padding: 0 15px; /* marge intérieure */
   width: 100%; /* largeur */
   height: 70px; /* hauteur */
   background-color: #fafafa; /* couleur du fond */
   border-radius: 20px; /* arrondis du cadre */
 }
-.btn_menu > p {
-  font-size: 18px; /* taille police */
-  margin-bottom: 5px; /* marge extérieure */
+.btn_menu .btn_menu_description_prix_item_valider {
+  width: 100%;
 }
-.btn_menu .btn_menu_description_prix {
-  justify-content: space-between; /* espace les éléments */
+.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix {
+  margin-right: -40px;
+  justify-content: space-between;
+  transition: all ease-in-out 0.5s;
 }
-.btn_menu .btn_menu_description_prix > p {
+.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix :first-child {
   font-size: 15px; /* taille police */
   font-weight: 100; /* largeur police */
+  margin-bottom: 10px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix > p {
+  font-size: 15px; /* taille police */
+  font-weight: 600; /* largeur police */
+  padding-right: 10px;
+}
+.btn_menu .item_valider {
+  width: 60px;
+  height: 100%;
+  margin-right: -15px;
+  border-radius: 0 20px 20px 0;
+  color: white;
+  background-color: #99E2D0;
+  transition: all ease-in-out 0.5s;
+  transform-origin: right;
+  transform: scaleX(0);
+}
+.btn_menu .item_valider i {
+  transform: scaleX(0) scaleY(0);
+  color: #fafafa;
+}
+.btn_menu:hover .item_valider {
+  transform: scaleX(1);
+}
+.btn_menu:hover .item_valider i {
+  transform: scaleX(1.2) scaleY(1.2);
+  color: #fafafa;
+}
+.btn_menu:hover .btn_menu_prix {
+  margin-right: 0px;
+}
+
+.btn_jaime {
+  box-shadow: none; /* ombrages */
+}
+.btn_jaime .fa-heart {
+  color: black;
+  background-color: rgba(243, 243, 243, 0);
+  padding: 0.2em;
+}
+.btn_jaime .fa-heart::before {
+  transition: color 1s ease-out;
+}
+.btn_jaime .fa-heart:hover::before {
+  color: red;
+  cursor: pointer;
+}
+.btn_jaime .btn_jaime_index {
+  margin-right: -33.6px;
+  color: black;
+  background: rgba(243, 243, 243, 0);
+}
+.btn_jaime .btn_jaime_index_2 {
+  font-weight: bold;
+  color: rgba(243, 243, 243, 0);
+  background-color: rgba(243, 243, 243, 0);
+}
+.btn_jaime .btn_jaime_menu {
+  margin-right: -33.6px;
+  font-size: x-large;
+  color: black;
+  background: rgba(243, 243, 243, 0);
+}
+.btn_jaime .btn_jaime_menu_2 {
+  font-weight: bold;
+  font-size: x-large;
+  color: rgba(243, 243, 243, 0);
+  background-color: rgba(243, 243, 243, 0);
 }
 
 .commander .btn_rose {
