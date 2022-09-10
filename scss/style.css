@@ -1,16 +1,16 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Shrikhand&display=swap");
-.commander, .header_contend a {
+.commander {
   display: flex;
   justify-content: center;
 }
 
-.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix, .btn_menu, .carte_menu .carte_menu_titre, .restaurant .carte_restaurant .carte_restaurant_description, .ensemble_btn_fonctionnement a, .btn_rose {
+.btn_menu .btn_menu_prix_item_valider, .btn_menu, .carte_menu .carte_menu_titre, .header_contend_menu a, .restaurant .carte_restaurant .carte_restaurant_description, .ensemble_btn_fonctionnement a, .btn_rose {
   display: flex;
   align-items: center;
 }
 
-.btn_jaime, .btn_menu .item_valider, .header_contend_menu a, .restaurant .carte_restaurant .nouveau_bloc_vert, .ensemble_btn_fonctionnement a .btn_fonctionnement, .ensemble_btn_fonctionnement a p, main .explorer, main .location {
+.btn_jaime, .btn_menu .btn_menu_prix_item_valider .item_valider, .restaurant .carte_restaurant .nouveau_bloc_vert, .ensemble_btn_fonctionnement a .btn_fonctionnement, .ensemble_btn_fonctionnement a p, main .explorer, main .location, .header_contend a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@ img {
 
 a {
   display: block;
-  margin-bottom: 20x;
+  margin-bottom: 20px;
 }
 
 .bloc_page {
@@ -65,17 +65,18 @@ a {
 }
 
 .container {
-  max-width: 1340px; /* largeur max à 1340px */
+  max-width: 1300px; /* largeur max à 1340px */
   width: 100%; /* largeur à 100% */
   margin: auto; /* marge extérieure automatique */
 }
 
 .header_contend a {
-  padding: 20px 0; /* marge intérieure */
+  margin: 0px;
 }
 .header_contend img {
-  width: auto; /* largeur */
-  height: 30px; /* hauteur */
+  width: auto;
+  height: 70px; /* hauteur */
+  padding: 20px; /* marge intérieure */
 }
 
 main .location {
@@ -122,9 +123,11 @@ main .fonctionnement {
   color: white; /* couleur */
   border-radius: 50px; /* arrondis du cadre */
   background: linear-gradient(#FF79DA, #9356DC); /* fond dégradé */
+  transition: all ease-in-out 0.3s;
 }
 .btn_rose:hover {
-  opacity: 90%; /* opacité */
+  opacity: 80%; /* opacité */
+  box-shadow: 9px 9px 9px #dfdfdf; /* ombrages */
 }
 
 .ensemble_btn_fonctionnement:hover i {
@@ -141,6 +144,7 @@ main .fonctionnement {
   z-index: 2; /* élément au dernier plan */
 }
 .ensemble_btn_fonctionnement a i {
+  transition: all ease-in-out 0.3s;
   margin: 20px; /* marge extérieure */
   color: #959595; /* couleur */
   z-index: 2; /* élément au dernier plan */
@@ -153,9 +157,11 @@ main .fonctionnement {
   background-color: #fafafa; /* couleur du fond */
   border-radius: 20px; /* arrondis du cadre */
   color: black;
+  transition: all ease-in-out 0.3s;
 }
 .ensemble_btn_fonctionnement a .btn_fonctionnement:hover {
   background-color: rgba(146, 86, 220, 0.1019607843); /* couleur du fond */
+  box-shadow: 9px 9px 9px #dfdfdf; /* ombrages */
 }
 
 .restaurant {
@@ -166,21 +172,33 @@ main .fonctionnement {
   text-decoration: none;
   color: black;
 }
+.restaurant ul li {
+  transition: all ease-in-out 0.3s; /* définit l'effet de transition du zoom */
+}
+.restaurant ul li:hover {
+  transform: scale(1.02);
+}
+.restaurant ul li:hover a {
+  box-shadow: 9px 9px 9px #dfdfdf; /* ombrages */
+}
 .restaurant .carte_restaurant {
   width: 100%; /* largeur */
   margin-bottom: 20px; /* marge intérieure */
-  border-radius: 20px; /* arrondis du cadre */
+}
+.restaurant .carte_restaurant a {
+  position: relative;
   box-shadow: 6px 6px 6px #dfdfdf; /* ombrages */
+  border-radius: 20px; /* arrondis du cadre */
+  transition: all ease-in-out 0.3s;
 }
 .restaurant .carte_restaurant .nouveau_bloc_vert {
-  width: 25%; /* largeur */
-  height: 25%; /* hauteur */
-  padding: 2%;
+  padding: 10px 15px;
   background-color: #99E2D0;
   color: #107f64;
   border-radius: 3px;
-  position: relative;
-  left: 70%;
+  position: absolute;
+  right: 20px;
+  top: 20px;
   margin-bottom: -14%;
   z-index: 2;
 }
@@ -225,12 +243,16 @@ footer {
 }
 
 .header_contend_menu {
-  display: grid; /* active la propriété 'grid' */
-  grid-template-columns: repeat(1fr, 3); /* nb colonne + taille colonne */
-  grid-template-areas: "i img"; /* placement template */
+  width: 100%;
+  display: inline-flex;
+}
+.header_contend_menu div {
+  margin-left: auto;
 }
 .header_contend_menu a {
-  margin-left: -10px; /* marge extérieure */
+  margin-right: auto;
+  padding-left: 20px;
+  margin-bottom: 0px;
 }
 .header_contend_menu a i {
   font-size: x-large; /* taille police */
@@ -238,10 +260,10 @@ footer {
   color: black; /* couleur */
 }
 .header_contend_menu img {
-  width: auto; /* largeur */
+  width: auto;
   height: 70px; /* hauteur */
   padding: 20px; /* marge intérieure */
-  margin-left: -10px; /* marge extérieure */
+  margin-left: -40px; /* marge extérieure */
 }
 
 .carte_menu {
@@ -252,9 +274,16 @@ footer {
   background-color: #f3f3f3; /* couleur fond */
 }
 .carte_menu h3 {
+  position: relative;
+  margin-bottom: 20px;
+}
+.carte_menu h3::before {
+  content: "";
   width: 45px;
-  padding-bottom: 5px;
-  border-bottom: 3px solid #99E2D0;
+  height: 3px;
+  background-color: #99E2D0;
+  position: absolute;
+  bottom: -10px;
 }
 .carte_menu .carte_menu_titre {
   justify-content: space-between; /* espace les éléments */
@@ -269,100 +298,179 @@ footer {
   padding: 0; /* marge intérieure */
 }
 
+.txt_overflow {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: width ease-in-out 0.5s;
+}
+
 .btn_menu {
-  padding: 0 15px; /* marge intérieure */
+  padding-left: 15px; /* marge intérieure */
   width: 100%; /* largeur */
   height: 70px; /* hauteur */
   background-color: #fafafa; /* couleur du fond */
   border-radius: 20px; /* arrondis du cadre */
+  cursor: pointer;
 }
-.btn_menu .btn_menu_description_prix_item_valider {
+.btn_menu:hover .txt_overflow {
+  width: 170px;
+}
+.btn_menu .btn_menu_description {
   width: 100%;
 }
-.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix {
-  margin-right: -40px;
-  justify-content: space-between;
-  transition: all ease-in-out 0.5s;
-}
-.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix :first-child {
+.btn_menu .btn_menu_description > p {
   font-size: 15px; /* taille police */
   font-weight: 100; /* largeur police */
   margin-bottom: 10px;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-.btn_menu .btn_menu_description_prix_item_valider .btn_menu_prix > p {
+.btn_menu .btn_menu_prix_item_valider {
+  height: 100%;
+  justify-content: space-between;
+}
+.btn_menu .btn_menu_prix_item_valider > p {
+  margin-bottom: -20px;
   font-size: 15px; /* taille police */
   font-weight: 600; /* largeur police */
   padding-right: 10px;
 }
-.btn_menu .item_valider {
-  width: 60px;
+.btn_menu .btn_menu_prix_item_valider .item_valider {
+  width: 0px;
   height: 100%;
-  margin-right: -15px;
   border-radius: 0 20px 20px 0;
   color: white;
   background-color: #99E2D0;
   transition: all ease-in-out 0.5s;
-  transform-origin: right;
-  transform: scaleX(0);
 }
-.btn_menu .item_valider i {
-  transform: scaleX(0) scaleY(0);
+.btn_menu .btn_menu_prix_item_valider .item_valider i {
+  font-size: xx-small;
+  opacity: 0;
   color: #fafafa;
+  transition: all ease-in-out 0.5s;
 }
 .btn_menu:hover .item_valider {
-  transform: scaleX(1);
+  width: 80px;
 }
 .btn_menu:hover .item_valider i {
-  transform: scaleX(1.2) scaleY(1.2);
-  color: #fafafa;
-}
-.btn_menu:hover .btn_menu_prix {
-  margin-right: 0px;
+  font-size: x-large;
+  opacity: 100%;
 }
 
 .btn_jaime {
   box-shadow: none; /* ombrages */
 }
-.btn_jaime .fa-heart {
-  color: black;
-  background-color: rgba(243, 243, 243, 0);
-  padding: 0.2em;
-}
-.btn_jaime .fa-heart::before {
-  transition: color 1s ease-out;
-}
-.btn_jaime .fa-heart:hover::before {
-  color: red;
-  cursor: pointer;
-}
 .btn_jaime .btn_jaime_index {
-  margin-right: -33.6px;
-  color: black;
-  background: rgba(243, 243, 243, 0);
+  margin-right: -24px;
 }
 .btn_jaime .btn_jaime_index_2 {
   font-weight: bold;
   color: rgba(243, 243, 243, 0);
-  background-color: rgba(243, 243, 243, 0);
 }
 .btn_jaime .btn_jaime_menu {
-  margin-right: -33.6px;
+  margin-right: -24px;
   font-size: x-large;
-  color: black;
-  background: rgba(243, 243, 243, 0);
 }
 .btn_jaime .btn_jaime_menu_2 {
   font-weight: bold;
   font-size: x-large;
   color: rgba(243, 243, 243, 0);
-  background-color: rgba(243, 243, 243, 0);
+}
+.btn_jaime .fa-heart:hover {
+  background: linear-gradient(0deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  background-clip: text;
+  cursor: pointer;
 }
 
 .commander .btn_rose {
   padding: 0 50px; /* marge intérieure */
   margin: 40px 0 60px 0; /* marge extérieure */
+}
+
+@media (min-width: 700px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .container .header_contend {
+    width: 100%;
+  }
+  .container .header_contend_menu {
+    width: 100%;
+  }
+  .container .banniere {
+    width: 100%;
+    height: 100%;
+  }
+  .container .banniere img {
+    width: 100%;
+    height: 350px;
+    -o-object-position: 0% 70%;
+       object-position: 0% 70%;
+  }
+  .container .carte_menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .container .carte_menu .carte_menu_titre {
+    width: 100%;
+    padding: 0 10%;
+  }
+  .container .carte_menu section {
+    width: 48%;
+  }
+  .container .carte_menu .desserts {
+    width: 100%;
+  }
+  .container .carte_menu .desserts .txt_overflow {
+    overflow: visible;
+  }
+  .container .carte_menu .commander {
+    width: 100%;
+  }
+  .container h2 {
+    text-align: center;
+  }
+  .container .location {
+    width: 100%;
+  }
+  .container .explorer {
+    width: 50%;
+  }
+  .container .fonctionnement {
+    width: 50%;
+  }
+  .container .restaurant {
+    width: 100%;
+  }
+  .container .restaurant ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .container .restaurant ul .carte_restaurant {
+    width: 48%;
+    margin-right: 2%;
+  }
+  .container_footer {
+    display: flex;
+    justify-content: center;
+  }
+  .container_footer .footer_contend h5, .container_footer .footer_contend ul li {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (min-width: 1200px) {
+  .bloc_page .container .carte_menu section {
+    width: 30%;
+  }
+  .bloc_page .container .carte_menu .desserts .txt_overflow {
+    overflow: hidden;
+  }
+  .bloc_page .container .carte_menu .commander {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -51,9 +51,9 @@
  a
  {
     display: block;
-    margin-bottom: 20x;
- } 
-
+    margin-bottom: 20px;
+ }  
+ 
  .bloc_page
  {
     margin: auto; /* marge extérieure */
@@ -61,7 +61,7 @@
 
  .container /* détermine les dimensions de la page */
  {
-    max-width: 1340px; /* largeur max à 1340px */
+    max-width: 1300px; /* largeur max à 1340px */
     width: 100%; /* largeur à 100% */
     margin: auto; /* marge extérieure automatique */
  }
@@ -70,14 +70,15 @@
 {
     a
     {
-        @extend %flex-center_x; 
+        @extend %flex-center_xy; 
 
-        padding: 20px 0; /* marge intérieure */
+        margin: 0px;
     }
     img
     {
-        width: auto; /* largeur */
-        height: 30px; /* hauteur */
+        width: auto;
+        height: 70px; /* hauteur */
+        padding: 20px; /* marge intérieure */
     }
 }
 
@@ -143,9 +144,12 @@ main
     color: white; /* couleur */
     border-radius: 50px; /* arrondis du cadre */ 
     background: linear-gradient($couleur_2, $couleur_1); /* fond dégradé */ 
+
+    transition: all ease-in-out .3s;
     &:hover
     {
-        opacity: 90%; /* opacité */
+        opacity: 80%; /* opacité */
+        box-shadow: 9px 9px 9px #dfdfdf; /* ombrages */
     }
 }
 
@@ -173,6 +177,7 @@ main
         }
         i
         {
+            transition: all ease-in-out .3s;
             margin: 20px; /* marge extérieure */
             color: #959595; /* couleur */
             z-index: 2; /* élément au dernier plan */
@@ -188,9 +193,12 @@ main
             color: black;
 
             @extend %flex-center_xy;
+            transition: all ease-in-out .3s;
+            
             &:hover
             {
                 background-color: #9256dc1a; /* couleur du fond */
+                box-shadow: 9px 9px 9px #dfdfdf; /* ombrages */
             }
         }
     }
@@ -205,23 +213,40 @@ main
         text-decoration: none;
         color: black;
     }
+    ul li
+    {
+        transition: all ease-in-out .3s; /* définit l'effet de transition du zoom */
+    }
+    ul li:hover
+    {
+        transform: scale(1.02);
+        a
+        {
+            box-shadow: 9px 9px 9px #dfdfdf; /* ombrages */
+        }
+
+    }
     .carte_restaurant
     {
         width: 100%; /* largeur */
         margin-bottom: 20px; /* marge intérieure */
-        border-radius: 20px; /* arrondis du cadre */
-        box-shadow: 6px 6px 6px #dfdfdf; /* ombrages */
+        a
+        {
+            position: relative;
+            box-shadow: 6px 6px 6px #dfdfdf; /* ombrages */
+            border-radius: 20px; /* arrondis du cadre */
+            transition: all ease-in-out .3s;
+        }
         .nouveau_bloc_vert
         {
-            width: 25%; /* largeur */
-            height: 25%; /* hauteur */
-            padding: 2%;
+            padding: 10px 15px;
             background-color: #99E2D0;
             color: #107f64;
             border-radius: 3px;
             
-            position: relative;
-            left: 70%;
+            position: absolute;
+            right: 20px;
+            top: 20px;
             margin-bottom: -14%;
             z-index: 2;
 
@@ -286,14 +311,19 @@ footer
 
 .header_contend_menu
 {
-    display: grid; /* active la propriété 'grid' */
-    grid-template-columns: repeat(1fr, 3) ; /* nb colonne + taille colonne */
-    grid-template-areas: "i img"; /* placement template */
+    width: 100%;
+    display: inline-flex;
+    div
+    {
+        margin-left: auto;
+    }
     a
     {
-        @extend %flex-center_xy; 
+        margin-right: auto;
+        padding-left: 20px;
+        margin-bottom: 0px;
 
-        margin-left: -10px; /* marge extérieure */
+        @extend %flex-center_y; 
         i
         {
             font-size: x-large; /* taille police */
@@ -303,10 +333,10 @@ footer
     }
     img
     {
-        width: auto; /* largeur */
+        width: auto;
         height: 70px; /* hauteur */
         padding: 20px; /* marge intérieure */
-        margin-left: -10px; /* marge extérieure */
+        margin-left: -40px; /* marge extérieure */
     }
 }
 
@@ -319,9 +349,17 @@ footer
     background-color: #f3f3f3; /* couleur fond */
     h3
     {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    h3::before
+    {
+        content: "";
         width: 45px;
-        padding-bottom: 5px;
-        border-bottom: 3px solid $couleur_3;
+        height: 3px;
+        background-color: $couleur_3;
+        position: absolute;
+        bottom: -10px;
     }
     .carte_menu_titre
     {
@@ -341,81 +379,83 @@ footer
     }
 }
 
+.txt_overflow
+ {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: width ease-in-out .5s;
+ }
+
 .btn_menu
 {
-    padding: 0 15px; /* marge intérieure */
+    padding-left: 15px; /* marge intérieure */
     width: 100%; /* largeur */
     height: 70px; /* hauteur */
     background-color: #fafafa; /* couleur du fond */
     border-radius: 20px; /* arrondis du cadre */
-
+    cursor: pointer;
     @extend %flex-center_y;
+
+    &:hover .txt_overflow
+    {
+        width: 170px;
+    }
     
-    .btn_menu_description_prix_item_valider
+    .btn_menu_description
     {
         width: 100%;
-        
-        .btn_menu_prix
+        >p
         {
-            margin-right: -40px;
-            @extend %flex-center_y;
-            justify-content: space-between;
-            
-
-            transition: all ease-in-out .5s;
-
-            :first-child
-            {
-                font-size: 15px; /* taille police */
-                font-weight: 100; /* largeur police */
-                margin-bottom: 10px;
-
-                margin: 0;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            >p
-            {
-                font-size: 15px; /* taille police */
-                font-weight: 600; /* largeur police */
-                padding-right: 10px;
-            }
+            font-size: 15px; /* taille police */
+            font-weight: 100; /* largeur police */
+            margin-bottom: 10px;
         }
     }
-    .item_valider 
+    .btn_menu_prix_item_valider
     {
-        width: 60px;
-        height: 100%; 
-        margin-right: -15px;      
-        border-radius: 0 20px 20px 0;
-        color: white;
-        background-color: $couleur_3;
-        
-        transition: all ease-in-out .5s;
-
-        @extend %flex-center_xy;
-        transform-origin: right;
-        transform: scaleX(0);
-        i
+        height: 100%;
+        @extend %flex-center_y;
+        justify-content: space-between;         
+        >p
         {
-            transform: scaleX(0) scaleY(0);
-            color: #fafafa
+            margin-bottom: -20px;
+            font-size: 15px; /* taille police */
+            font-weight: 600; /* largeur police */
+            padding-right: 10px;
+        }
+        .item_valider 
+        {
+            width: 0px;
+            height: 100%; 
+                
+            border-radius: 0 20px 20px 0;
+            color: white;
+            background-color: $couleur_3;
+            
+            transition: all ease-in-out .5s;
+
+            @extend %flex-center_xy;
+            i
+            {
+                font-size: xx-small;
+                opacity: 0;
+                color: #fafafa;
+
+                transition: all ease-in-out .5s;
+            }
         }
     }
     &:hover .item_valider
     {
-        
-        transform: scaleX(1);
+        width: 80px;
         i
         {
-            transform: scaleX(1.2) scaleY(1.2); 
-            color: #fafafa;
+            font-size: x-large;
+            opacity: 100%;
         }
-    }
-    &:hover .btn_menu_prix
-    {
-        margin-right: 0px;
     }
 }
 
@@ -425,45 +465,33 @@ footer
 
     @extend %flex-center_xy; 
 
-    .fa-heart {
-        color: black;
-        background-color: #f3f3f300;
-        
-        padding:.2em;
-    }
-    .fa-heart::before {
-        
-        transition: color 1s ease-out;
-    }
-    .fa-heart:hover::before{
-        color: red;
-        cursor: pointer;
-    }
     .btn_jaime_index
     {
-        margin-right: -33.6px;
-        color: black;
-        background: #f3f3f300; 
+        margin-right: -24px;
     }
     .btn_jaime_index_2
     {
         font-weight: bold;
         color: #f3f3f300;
-        background-color: #f3f3f300;
     }
     .btn_jaime_menu
     {
-        margin-right: -33.6px;
+        margin-right: -24px;
         font-size: x-large;
-        color: black;
-        background: #f3f3f300; 
     }
     .btn_jaime_menu_2
     {
         font-weight: bold;
         font-size: x-large;
         color: #f3f3f300;
-        background-color: #f3f3f300;
+    }
+    
+    .fa-heart:hover
+    {
+        background: linear-gradient(0deg, $couleur_2, $couleur_1);
+        -webkit-background-clip: text;
+        background-clip: text;
+        cursor: pointer;
     }
 }
 
@@ -477,3 +505,127 @@ footer
     }
 }
 
+@media (min-width: 700px) 
+{ 
+    .container
+    {   
+        display: flex;
+        flex-wrap: wrap;
+        .header_contend
+        { 
+            width: 100%;
+        }
+        .header_contend_menu
+        { 
+            width: 100%;
+        }
+        .banniere
+        {
+            width: 100%;
+            height: 100%;
+            img
+            {
+                width: 100%;
+                height: 350px;
+                object-position: 0% 70%;
+            }
+        }
+        .carte_menu
+        { 
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .carte_menu_titre
+            { 
+                width: 100%;
+                padding: 0 10%;
+            }
+            section
+            { 
+                width: 48%;
+            }
+            .desserts
+            { 
+                width: 100%;
+                .txt_overflow 
+                {
+                    overflow: visible;
+                }
+            }
+            .commander
+            { 
+                width: 100%;
+            }
+        }
+        h2
+        { 
+            text-align: center;
+        }
+        .location
+        { 
+            width: 100%;
+        }
+        .explorer
+        { 
+            width: 50%;
+        }
+        .fonctionnement
+        { 
+            width: 50%;
+        }
+        .restaurant
+        { 
+            width: 100%;
+            ul
+            { 
+                display: flex;
+                flex-wrap: wrap;
+
+                .carte_restaurant
+                { 
+                    width: 48%;
+                    margin-right: 2%;
+                }
+            }
+        }
+    }
+    .container_footer
+    { 
+        display: flex;
+        justify-content: center;
+        .footer_contend h5, .footer_contend ul li
+        { 
+            display: flex;
+            justify-content: center;    
+        }
+    }
+}   
+
+@media (min-width: 1200px) 
+{ 
+    .bloc_page
+    { 
+        .container
+        { 
+            .carte_menu
+            {
+                section
+                { 
+                    width: 30%;
+                }
+                .desserts
+                { 
+                    .txt_overflow 
+                    {
+                        overflow: hidden;
+                    }
+                }
+                .commander
+                { 
+                    width: 100%;
+                }               
+            }
+        }
+    }
+}
