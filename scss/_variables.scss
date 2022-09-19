@@ -1,3 +1,50 @@
+/* couleurs principales */
+
 $couleur_1: #9356DC;
 $couleur_2: #FF79DA;
 $couleur_3: #99E2D0;
+
+/* ombrages */
+
+$box-shadow__ombrage_1: 6px 6px 6px #dfdfdf;
+$hover-box-shadow__ombrage_1: 9px 9px 9px #dfdfdf;
+
+/* caractéristiques "btn_rose_violet" */
+
+$width__btn_rose_violet: auto;
+$height__btn_rose_violet: 50px;
+$margin__btn_rose_violet: 20px 0 30px 0;
+$padding__btn_rose_violet: 0 20px;
+$border-radius__btn_rose_violet: 50px;
+
+$color__btn_rose_violet: white;
+$background__btn_rose_violet: linear-gradient($couleur_2, $couleur_1);
+$hover-opacity__btn_rose_violet: 80%;
+
+/* caractéristiques "ensemble_btn_fonctionnement" */
+
+$hover-color-icone__ensemble_btn_fonctionnement: $couleur_1;
+$background-chiffre__ensemble_btn_fonctionnement: $couleur_1;
+
+/* caractéristiques "btn_fonctionnement" */
+
+$width__btn_fonctionnement: 100%;
+$height__btn_fonctionnement: 70px; 
+$margin__btn_fonctionnement: 0 0 0 -66px;
+$padding__btn_fonctionnement: 0 10px;
+$border-radius__btn_fonctionnement: 20px;
+
+$color__btn_fonctionnement: black;
+$background__btn_fonctionnement: #fafafa;
+$hover-background__btn_fonctionnement: #9256dc1a;
+
+/* caractéristiques "btn_menu" */
+
+$width__btn_menu: 100%; 
+$height__btn_menu: 70px;
+$margin__btn_menu: 0 0 15px 0;
+$padding__btn_menu: 0 0 0 15px;
+$border-radius__btn_menu: 20px;
+
+$color__btn_menu: black;
+$background__btn_menu: #fafafa;

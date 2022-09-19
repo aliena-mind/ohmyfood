@@ -1,0 +1,189 @@
+/* width / height */
+
+@mixin width_height($width, $height)
+{
+    width: $width;
+    height: $height;
+}
+
+/* margin / padding */
+
+@mixin margin_padding($margin, $padding)
+{
+    margin: $margin;
+    padding: $padding;
+}
+
+/* display_flex */
+
+@mixin display_flex($justify-content, $align-items)
+{
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+/* btn */
+
+@mixin btn($width, $height, $margin, $padding, $border-radius)
+{
+    @include width_height($width, $height);
+    @include margin_padding($margin, $padding);
+    border: none; /* bordure du cadre */
+    border-radius: $border-radius; /* arrondis du cadre */
+    box-shadow: $box-shadow__ombrage_1; /* ombrages */
+}
+
+/* btn_rose_violet */ 
+
+@mixin btn_rose_violet($color, $background, $hover-opacity)
+{   
+    color: $color; /* couleur */ 
+    background: $background; /* fond dégradé */ 
+
+    transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+
+    &:hover
+    {
+        opacity: $hover-opacity; /* opacité */
+        box-shadow: $hover-box-shadow__ombrage_1; /* ombrages */
+    }
+}
+
+/* ensemble_btn_fonctionnement */
+
+@mixin ensemble_btn_fonctionnement($hover-color-icone, $background-chiffre)
+{
+    &:hover i 
+    {
+        color: $hover-color-icone;
+    }
+    a
+    {
+        @include display_flex(flex-start, center); 
+        p
+        {
+            min-width: 20px; /* largeur mini */
+            min-height: 20px; /* hauteur mini */
+            @include width_height(20px, 20px);
+            color: white; /* couleur chiffre */
+            background-color: $background-chiffre; /* couleur du fond chiffre */
+            border-radius: 100%; /* arrondis du cadre */
+            z-index: 2; /* élément au dernier plan */
+
+            @include display_flex(center, center);
+        }
+        i
+        {
+            transition: all ease-in-out .3s;
+            -moz-transition: all ease-in-out .3s;
+            -webkit-transition: all ease-in-out .3s;
+            -o-transition: all ease-in-out .3s;
+
+            margin: 20px; /* marge extérieure */
+            color: #959595; /* couleur */
+            z-index: 2; /* élément au dernier plan */
+        }
+        .btn_fonctionnement
+        {
+            @include btn($width__btn_fonctionnement, $height__btn_fonctionnement, $margin__btn_fonctionnement, $padding__btn_fonctionnement, $border-radius__btn_fonctionnement);
+            @include btn_fonctionnement($color__btn_fonctionnement, $background__btn_fonctionnement, $hover-background__btn_fonctionnement);
+            @include display_flex(center, center);
+        }
+    }
+}
+
+/* btn_fonctionnement */
+
+@mixin btn_fonctionnement($color, $background, $hover-background)
+{
+    color: $color; /* couleur */ 
+    background: $background; /* fond dégradé */ 
+
+    transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+
+    &:hover
+    {
+        background: $hover-background; /* couleur du fond */
+        box-shadow: $hover-box-shadow__ombrage_1 /* ombrages */
+    }
+}
+
+/* btn_menu */
+
+@mixin btn_menu($color, $background)
+{
+    color: $color; /* couleur */ 
+    background: $background; /* fond dégradé */ 
+
+    &:hover .txt_overflow
+    {
+        width: 180px; /* largeur */
+    }
+    .btn_menu_description
+    {
+        width: 100%; /* largeur */
+        >p
+        {
+            font-size: 15px; /* taille police */
+            font-weight: 100; /* largeur police */
+            margin-bottom: 10px; /* marge extérieure */
+        }
+    }
+    .btn_menu_prix_item_valider
+    {
+        height: 100%; /* hauteur */
+
+        @include display_flex(flex-start, center);
+        justify-content: space-between;         
+        >p
+        {
+            padding-right: 10px; /* marge extérieure */
+            margin-bottom: -25px; /* position texte */
+            margin-left: -20px; /* position texte */
+            font-size: 15px; /* taille police */
+            font-weight: 600; /* largeur police */
+        }
+        .item_valider 
+        {
+            @include width_height(0px, 100%);
+            border-radius: 0 20px 20px 0; /* arrondis */
+            color: white; /* couleur */
+            background-color: $couleur_3; /* background */
+            
+            transition: all ease-in-out .5s;
+            -moz-transition: all ease-in-out .5s;
+            -webkit-transition: all ease-in-out .5s;
+            -o-transition: all ease-in-out .5s;
+
+            @include display_flex(center, center);
+            i
+            {
+                font-size: xx-small; /* taille police */
+                opacity: 0; /* opacité */
+                color: #fafafa; /* couleur */
+
+                transition: all ease-in-out .5s;
+                -moz-transition: all ease-in-out .5s;
+                -webkit-transition: all ease-in-out .5s;
+                -o-transition: all ease-in-out .5s;
+            }
+        }
+    }
+    &:hover .item_valider
+    {
+        width: 80px; /* largeur */
+        i
+        {
+            font-size: x-large; /* taille police */
+            opacity: 100%; /* opacité */
+            transform: rotate(-360deg); /* rotation */
+        }
+    }
+}
